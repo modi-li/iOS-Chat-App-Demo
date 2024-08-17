@@ -21,6 +21,7 @@ Here are some screenshots of the app.
 	<img src="screenshots/screenshot-5.png" width="200" />
     <img src="screenshots/screenshot-6.png" width="200" />
     <img src="screenshots/screenshot-7.png" width="200" />
+    <img src="screenshots/screenshot-8.png" width="200" />
 </p>
 
 ## Notice
