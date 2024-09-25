@@ -56,6 +56,7 @@ class ChatMessageTableViewCell: UITableViewCell {
         contentView.addSubview(messageTextLabel)
         
         NSLayoutConstraint.activate([
+            backgroundBubbleView.widthAnchor.constraint(lessThanOrEqualTo: contentView.widthAnchor, multiplier: 0.75),
             backgroundBubbleView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             backgroundBubbleView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
