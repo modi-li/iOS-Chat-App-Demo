@@ -58,11 +58,19 @@ class SampleData {
         chatMessage3.text = "I'm doing great!"
         chatMessage3.date = Date(timeIntervalSince1970: 1717597340)
         
-        chat1.lastChatMessage = chatMessage3
+        let chatMessage4 = ChatMessage(context: context)
+        chatMessage4.id = UUID()
+        chatMessage4.chat = chat1
+        chatMessage4.fromUser = user
+        chatMessage4.text = "I'm looking forward to seeing you next week in Seattle! What would you like to do here?"
+        chatMessage4.date = Date(timeIntervalSince1970: 1717597820)
+        
+        chat1.lastChatMessage = chatMessage4
         
         chat1.addToChatMessages(chatMessage1)
         chat1.addToChatMessages(chatMessage2)
         chat1.addToChatMessages(chatMessage3)
+        chat1.addToChatMessages(chatMessage4)
         
         do {
             try context.save()
