@@ -26,7 +26,7 @@ class ContactInfoTableViewController: InsetGroupedTableViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = "Contact Info"
         
-        view.backgroundColor = Colors.background1
+        view.backgroundColor = Colors.gray2
         
         tableView.register(ContactInfoProfileTableViewCell.self, forCellReuseIdentifier: ContactInfoProfileTableViewCell.id)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.id)

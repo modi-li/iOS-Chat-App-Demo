@@ -31,7 +31,7 @@ class ContactsTableViewController: UITableViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        view.backgroundColor = Colors.background1
+        view.backgroundColor = Colors.gray2
         
         tableView.register(ContactTableViewCell.self, forCellReuseIdentifier: ContactTableViewCell.id)
     }

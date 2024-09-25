@@ -13,7 +13,7 @@ class Colors {
         return UIColor(red: CGFloat(red)/255.0, green: CGFloat(green)/255.0, blue: CGFloat(blue)/255.0, alpha: alpha)
     }
     
-    static let tint = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+    static let gray1 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
             return colorFromRGB(red: 16, green: 16, blue: 16)
         } else {
@@ -21,7 +21,7 @@ class Colors {
         }
     }
     
-    static let background1 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+    static let gray2 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
             return colorFromRGB(red: 242, green: 242, blue: 242)
         } else {
@@ -29,7 +29,7 @@ class Colors {
         }
     }
     
-    static let background2 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+    static let gray3 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
             return colorFromRGB(red: 250, green: 250, blue: 250)
         } else {
@@ -37,7 +37,7 @@ class Colors {
         }
     }
     
-    static let background3 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+    static let gray4 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
             return colorFromRGB(red: 242, green: 242, blue: 242)
         } else {

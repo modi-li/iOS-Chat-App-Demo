@@ -13,7 +13,7 @@ class WelcomeViewController: UIViewController {
         let label = UILabel()
         label.text = "Welcome"
         label.font = .systemFont(ofSize: 42, weight: .bold)
-        label.textColor = Colors.tint
+        label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -22,8 +22,8 @@ class WelcomeViewController: UIViewController {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.background1
-        configuration.baseBackgroundColor = Colors.tint
+        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseBackgroundColor = Colors.gray1
         button.configuration = configuration
         button.setTitle("Sign Up", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -34,8 +34,8 @@ class WelcomeViewController: UIViewController {
         let button = UIButton()
         var configuration = UIButton.Configuration.gray()
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.tint
-        configuration.baseBackgroundColor = Colors.background2
+        configuration.baseForegroundColor = Colors.gray1
+        configuration.baseBackgroundColor = Colors.gray3
         button.configuration = configuration
         button.setTitle("Log In", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -45,7 +45,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Colors.background1
+        view.backgroundColor = Colors.gray2
         
         configureSubviewConstraints()
         

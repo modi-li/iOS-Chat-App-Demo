@@ -26,7 +26,7 @@ class ContactTableViewCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 18)
+        label.font = .systemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -42,13 +42,13 @@ class ContactTableViewCell: UITableViewCell {
         contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            photoImageView.widthAnchor.constraint(equalToConstant: 50),
-            photoImageView.heightAnchor.constraint(equalToConstant: 50),
+            photoImageView.widthAnchor.constraint(equalToConstant: 55),
+            photoImageView.heightAnchor.constraint(equalToConstant: 55),
             photoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 10),
+            nameLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 8),
             nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
     }

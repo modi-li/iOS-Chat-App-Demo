@@ -16,7 +16,7 @@ class VideoCallViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: self, action: #selector(hide))
         
-        view.backgroundColor = Colors.background1
+        view.backgroundColor = Colors.gray2
     }
     
     @objc func hide() {

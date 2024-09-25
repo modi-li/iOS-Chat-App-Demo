@@ -13,7 +13,7 @@ class LogInViewController: UIViewController {
         let label = UILabel()
         label.text = "Log In"
         label.font = .systemFont(ofSize: 36, weight: .bold)
-        label.textColor = Colors.tint
+        label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -23,7 +23,7 @@ class LogInViewController: UIViewController {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1.5
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.background2
+        textField.backgroundColor = Colors.gray3
         textField.keyboardType = .emailAddress
         textField.font = .systemFont(ofSize: 16)
         textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor: Colors.placeholder])
@@ -36,7 +36,7 @@ class LogInViewController: UIViewController {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1.5
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.background2
+        textField.backgroundColor = Colors.gray3
         textField.isSecureTextEntry = true
         textField.font = .systemFont(ofSize: 16)
         textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [.foregroundColor: Colors.placeholder])
@@ -48,8 +48,8 @@ class LogInViewController: UIViewController {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.background1
-        configuration.baseBackgroundColor = Colors.tint
+        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseBackgroundColor = Colors.gray1
         button.configuration = configuration
         button.setTitle("Log In", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -61,7 +61,7 @@ class LogInViewController: UIViewController {
         
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
         
-        view.backgroundColor = Colors.background1
+        view.backgroundColor = Colors.gray2
         
         registerForTraitChanges([UITraitUserInterfaceStyle.self]) { (self: Self, previousTraitCollection: UITraitCollection) in
             self.emailTextField.layer.borderColor = Colors.border.cgColor

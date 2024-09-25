@@ -35,7 +35,7 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
         var configuration = UIButton.Configuration.filled()
         configuration.image = UIImage(systemName: "message")
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.tint
+        configuration.baseForegroundColor = Colors.gray1
         configuration.baseBackgroundColor = .secondarySystemGroupedBackground
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -47,7 +47,7 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
         var configuration = UIButton.Configuration.filled()
         configuration.image = UIImage(systemName: "phone")
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.tint
+        configuration.baseForegroundColor = Colors.gray1
         configuration.baseBackgroundColor = .secondarySystemGroupedBackground
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -59,7 +59,7 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
         var configuration = UIButton.Configuration.filled()
         configuration.image = UIImage(systemName: "video")
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.tint
+        configuration.baseForegroundColor = Colors.gray1
         configuration.baseBackgroundColor = .secondarySystemGroupedBackground
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false

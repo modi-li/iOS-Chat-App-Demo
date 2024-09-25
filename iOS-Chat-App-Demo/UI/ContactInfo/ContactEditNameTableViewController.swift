@@ -24,7 +24,7 @@ class ContactEditNameTableViewController: InsetGroupedTableViewController, TextF
         navigationItem.title = "Edit Name"
         navigationItem.rightBarButtonItem = UIComponents.actionBarButtonItem(title: "Save", target: self, action: #selector(save))
         
-        view.backgroundColor = Colors.background1
+        view.backgroundColor = Colors.gray2
         
         tableView.register(TextFieldTableViewCell.self, forCellReuseIdentifier: TextFieldTableViewCell.id)
     }

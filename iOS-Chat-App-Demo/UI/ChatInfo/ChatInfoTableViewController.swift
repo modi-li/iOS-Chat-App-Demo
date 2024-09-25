@@ -17,7 +17,7 @@ class ChatInfoTableViewController: InsetGroupedTableViewController {
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
         navigationItem.title = "Chat Info"
         
-        view.backgroundColor = Colors.background1
+        view.backgroundColor = Colors.gray2
         
         tableView.register(ChatInfoProfileTableViewCell.self, forCellReuseIdentifier: ChatInfoProfileTableViewCell.id)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.id)

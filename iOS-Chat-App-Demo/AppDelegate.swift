@@ -14,12 +14,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UINavigationBar.appearance().tintColor = Colors.tint
-        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Colors.tint]
-        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Colors.tint]
+        UINavigationBar.appearance().tintColor = Colors.gray1
+        UINavigationBar.appearance().titleTextAttributes = [.foregroundColor: Colors.gray1]
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Colors.gray1]
         
         let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.backgroundColor = Colors.background2
+        tabBarAppearance.backgroundColor = Colors.gray3
         UITabBar.appearance().standardAppearance = tabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         

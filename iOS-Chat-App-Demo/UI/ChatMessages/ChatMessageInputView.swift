@@ -21,7 +21,7 @@ class ChatMessageInputView: UIView {
         let button = UIButton()
         var configuration = UIButton.Configuration.plain()
         configuration.contentInsets = .zero
-        configuration.baseForegroundColor = Colors.tint
+        configuration.baseForegroundColor = Colors.gray1
         configuration.image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +42,7 @@ class ChatMessageInputView: UIView {
         let button = UIButton()
         var configuration = UIButton.Configuration.plain()
         configuration.contentInsets = .zero
-        configuration.baseForegroundColor = Colors.tint
+        configuration.baseForegroundColor = Colors.gray1
         configuration.image = UIImage(systemName: "arrow.forward.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 22))
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false

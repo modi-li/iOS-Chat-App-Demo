@@ -14,7 +14,7 @@ class ChatMessageTableViewCell: UITableViewCell {
             messageTextLabel.text = chatMessage.text
             let isFromSelfUser = chatMessage.fromUser?.id == DataHelper.getSelfUser()?.user?.id
             messageTextLabel.textColor = isFromSelfUser ? .systemBackground : .label
-            backgroundBubbleView.backgroundColor = isFromSelfUser ? Colors.tint : Colors.background3
+            backgroundBubbleView.backgroundColor = isFromSelfUser ? Colors.gray1 : Colors.gray4
             
             leadingConstraint.isActive = !isFromSelfUser
             trailingConstraint.isActive = isFromSelfUser

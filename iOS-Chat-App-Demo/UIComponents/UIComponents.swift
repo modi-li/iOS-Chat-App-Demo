@@ -17,7 +17,7 @@ class UIComponents {
             configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 11, bottom: 5, trailing: 11)
             configuration.title = title
             configuration.cornerStyle = .capsule
-            configuration.attributedTitle = AttributedString(title, attributes: .init([.foregroundColor: Colors.background2]))
+            configuration.attributedTitle = AttributedString(title, attributes: .init([.foregroundColor: Colors.gray3]))
             button.configuration = configuration
             button.addTarget(target, action: action, for: .touchUpInside)
             return button

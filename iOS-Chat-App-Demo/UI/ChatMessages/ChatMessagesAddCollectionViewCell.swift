@@ -13,8 +13,8 @@ class ChatMessagesAddCollectionViewCell: UICollectionViewCell {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.contentInsets = .zero
-        configuration.baseForegroundColor = Colors.tint
-        configuration.baseBackgroundColor = Colors.background2
+        configuration.baseForegroundColor = Colors.gray1
+        configuration.baseBackgroundColor = Colors.gray3
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
