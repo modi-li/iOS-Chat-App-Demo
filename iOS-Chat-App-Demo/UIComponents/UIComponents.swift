@@ -15,9 +15,14 @@ class UIComponents {
             let button = UIButton()
             var configuration = UIButton.Configuration.filled()
             configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 11, bottom: 5, trailing: 11)
-            configuration.title = title
             configuration.cornerStyle = .capsule
-            configuration.attributedTitle = AttributedString(title, attributes: .init([.foregroundColor: Colors.gray3]))
+            configuration.baseForegroundColor = Colors.gray6
+            configuration.baseBackgroundColor = Colors.gray1
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: UIFont.systemFont(ofSize: 16, weight: .bold)
+            ]
+            let attributedTitle = NSAttributedString(string: title, attributes: attributes)
+            configuration.attributedTitle = AttributedString(attributedTitle)
             button.configuration = configuration
             button.addTarget(target, action: action, for: .touchUpInside)
             return button

@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Colors.gray1]
         
         let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.backgroundColor = Colors.gray3
+        tabBarAppearance.backgroundColor = Colors.gray8
         UITabBar.appearance().standardAppearance = tabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         

@@ -28,21 +28,24 @@ class ChatTableViewCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
+        label.font = .systemFont(ofSize: 19)
+        label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var lastMessageLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 17)
-        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = Colors.gray3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        backgroundColor = Colors.gray4
         
         configureSubviewConstraints()
     }
@@ -58,10 +61,10 @@ class ChatTableViewCell: UITableViewCell {
             photoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             
-            titleLabel.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 4),
+            titleLabel.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 6),
             titleLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 8),
             
-            lastMessageLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
+            lastMessageLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 1),
             lastMessageLabel.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: -4),
             lastMessageLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
         ])

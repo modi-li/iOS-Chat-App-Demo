@@ -15,57 +15,97 @@ class Colors {
     
     static let gray1 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
-            return colorFromRGB(red: 16, green: 16, blue: 16)
+            return colorFromRGB(red: 4, green: 4, blue: 8)
         } else {
-            return colorFromRGB(red: 252, green: 252, blue: 252)
+            return colorFromRGB(red: 255, green: 255, blue: 255)
         }
     }
     
     static let gray2 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
-            return colorFromRGB(red: 242, green: 242, blue: 242)
+            return colorFromRGB(red: 62, green: 62, blue: 66)
         } else {
-            return colorFromRGB(red: 10, green: 10, blue: 10)
+            return colorFromRGB(red: 232, green: 232, blue: 236)
         }
     }
     
     static let gray3 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
-            return colorFromRGB(red: 250, green: 250, blue: 250)
+            return colorFromRGB(red: 94, green: 94, blue: 98)
         } else {
-            return colorFromRGB(red: 31, green: 31, blue: 31)
+            return colorFromRGB(red: 232, green: 232, blue: 236)
         }
     }
     
     static let gray4 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
-            return colorFromRGB(red: 242, green: 242, blue: 242)
+            return colorFromRGB(red: 251, green: 251, blue: 255)
         } else {
-            return colorFromRGB(red: 31, green: 31, blue: 31)
+            return colorFromRGB(red: 8, green: 8, blue: 12)
+        }
+    }
+    
+    static let gray5 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        if traitCollection.userInterfaceStyle == .light {
+            return colorFromRGB(red: 245, green: 245, blue: 249)
+        } else {
+            return colorFromRGB(red: 20, green: 20, blue: 24)
+        }
+    }
+    
+    static let gray6 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        if traitCollection.userInterfaceStyle == .light {
+            return colorFromRGB(red: 255, green: 255, blue: 255)
+        } else {
+            return colorFromRGB(red: 40, green: 40, blue: 44)
+        }
+    }
+    
+    static let gray7 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        if traitCollection.userInterfaceStyle == .light {
+            return colorFromRGB(red: 255, green: 255, blue: 255)
+        } else {
+            return colorFromRGB(red: 50, green: 50, blue: 54)
+        }
+    }
+    
+    static let gray8 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        if traitCollection.userInterfaceStyle == .light {
+            return colorFromRGB(red: 242, green: 242, blue: 246)
+        } else {
+            return colorFromRGB(red: 30, green: 30, blue: 34)
+        }
+    }
+    
+    static let gray9 = UIColor { (traitCollection: UITraitCollection) -> UIColor in
+        if traitCollection.userInterfaceStyle == .light {
+            return colorFromRGB(red: 225, green: 225, blue: 229)
+        } else {
+            return colorFromRGB(red: 82, green: 82, blue: 86)
         }
     }
     
     static let placeholder = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
-            return colorFromRGB(red: 168, green: 168, blue: 168)
+            return colorFromRGB(red: 168, green: 168, blue: 172)
         } else {
-            return colorFromRGB(red: 126, green: 126, blue: 126)
+            return colorFromRGB(red: 126, green: 126, blue: 130)
         }
     }
     
     static let border = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
-            return colorFromRGB(red: 229, green: 229, blue: 229)
+            return colorFromRGB(red: 229, green: 229, blue: 233)
         } else {
-            return colorFromRGB(red: 44, green: 44, blue: 44)
+            return colorFromRGB(red: 44, green: 44, blue: 48)
         }
     }
     
     static let defaultPictureTint = UIColor { (traitCollection: UITraitCollection) -> UIColor in
         if traitCollection.userInterfaceStyle == .light {
-            return colorFromRGB(red: 104, green: 104, blue: 104)
+            return colorFromRGB(red: 144, green: 144, blue: 148)
         } else {
-            return colorFromRGB(red: 182, green: 182, blue: 182)
+            return colorFromRGB(red: 182, green: 182, blue: 186)
         }
     }
     

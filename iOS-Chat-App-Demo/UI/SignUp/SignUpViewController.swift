@@ -21,10 +21,10 @@ class SignUpViewController: UIViewController {
     lazy var nameTextField: UITextField = {
         let textField = TextField(withHorizontalPadding: 15)
         textField.layer.cornerRadius = 12
-        textField.layer.borderWidth = 1.5
+        textField.layer.borderWidth = 1
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray3
-        textField.font = .systemFont(ofSize: 16)
+        textField.backgroundColor = Colors.gray6
+        textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [.foregroundColor: Colors.placeholder])
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -33,11 +33,11 @@ class SignUpViewController: UIViewController {
     lazy var emailTextField: UITextField = {
         let textField = TextField(withHorizontalPadding: 15)
         textField.layer.cornerRadius = 12
-        textField.layer.borderWidth = 1.5
+        textField.layer.borderWidth = 1
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray3
+        textField.backgroundColor = Colors.gray6
         textField.keyboardType = .emailAddress
-        textField.font = .systemFont(ofSize: 16)
+        textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor: Colors.placeholder])
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -48,9 +48,9 @@ class SignUpViewController: UIViewController {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1.5
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray3
+        textField.backgroundColor = Colors.gray6
         textField.isSecureTextEntry = true
-        textField.font = .systemFont(ofSize: 16)
+        textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [.foregroundColor: Colors.placeholder])
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -61,9 +61,9 @@ class SignUpViewController: UIViewController {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1.5
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray3
+        textField.backgroundColor = Colors.gray6
         textField.isSecureTextEntry = true
-        textField.font = .systemFont(ofSize: 16)
+        textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Re-enter Password", attributes: [.foregroundColor: Colors.placeholder])
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
@@ -73,10 +73,14 @@ class SignUpViewController: UIViewController {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseForegroundColor = Colors.gray5
         configuration.baseBackgroundColor = Colors.gray1
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+        let attributedTitle = NSAttributedString(string: "Sign Up", attributes: attributes)
+        configuration.attributedTitle = AttributedString(attributedTitle)
         button.configuration = configuration
-        button.setTitle("Sign Up", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -86,7 +90,7 @@ class SignUpViewController: UIViewController {
         
         navigationController?.navigationBar.topItem?.backButtonTitle = ""
         
-        view.backgroundColor = Colors.gray2
+        view.backgroundColor = Colors.gray5
         
         configureSubviewConstraints()
         

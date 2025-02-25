@@ -31,7 +31,7 @@ class ChatsTableViewController: UITableViewController {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        view.backgroundColor = Colors.gray2
+        view.backgroundColor = Colors.gray5
         
         tableView.register(ChatTableViewCell.self, forCellReuseIdentifier: ChatTableViewCell.id)
     }

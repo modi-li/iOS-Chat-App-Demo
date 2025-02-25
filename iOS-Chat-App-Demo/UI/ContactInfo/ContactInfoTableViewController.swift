@@ -26,7 +26,7 @@ class ContactInfoTableViewController: InsetGroupedTableViewController {
         navigationItem.largeTitleDisplayMode = .never
         navigationItem.title = "Contact Info"
         
-        view.backgroundColor = Colors.gray2
+        view.backgroundColor = Colors.gray5
         
         tableView.register(ContactInfoProfileTableViewCell.self, forCellReuseIdentifier: ContactInfoProfileTableViewCell.id)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.id)
@@ -51,7 +51,13 @@ class ContactInfoTableViewController: InsetGroupedTableViewController {
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.id, for: indexPath)
             cell.accessoryType = .disclosureIndicator
-            cell.configure(text: "Name")
+            var contentConfiguration = cell.defaultContentConfiguration()
+            contentConfiguration.text = "Name"
+            contentConfiguration.textProperties.color = Colors.gray1
+            cell.contentConfiguration = contentConfiguration
+            var backgroundConfiguration = cell.defaultBackgroundConfiguration()
+            backgroundConfiguration.backgroundColor = Colors.gray6
+            cell.backgroundConfiguration = backgroundConfiguration
             return cell
         }
     }

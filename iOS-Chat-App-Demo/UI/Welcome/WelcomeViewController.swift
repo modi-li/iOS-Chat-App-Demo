@@ -22,22 +22,30 @@ class WelcomeViewController: UIViewController {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseForegroundColor = Colors.gray5
         configuration.baseBackgroundColor = Colors.gray1
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+        let attributedTitle = NSAttributedString(string: "Sign Up", attributes: attributes)
+        configuration.attributedTitle = AttributedString(attributedTitle)
         button.configuration = configuration
-        button.setTitle("Sign Up", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     lazy var logInButton: UIButton = {
         let button = UIButton()
-        var configuration = UIButton.Configuration.gray()
+        var configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .large
         configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = Colors.gray3
+        configuration.baseBackgroundColor = Colors.gray6
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+        ]
+        let attributedTitle = NSAttributedString(string: "Log In", attributes: attributes)
+        configuration.attributedTitle = AttributedString(attributedTitle)
         button.configuration = configuration
-        button.setTitle("Log In", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -45,7 +53,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = Colors.gray2
+        view.backgroundColor = Colors.gray5
         
         configureSubviewConstraints()
         
@@ -70,7 +78,7 @@ class WelcomeViewController: UIViewController {
             logInButton.heightAnchor.constraint(equalTo: signUpButton.heightAnchor),
             logInButton.centerXAnchor.constraint(equalTo: signUpButton.centerXAnchor),
             logInButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 15),
-            logInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
+            logInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -60)
         ])
     }
     

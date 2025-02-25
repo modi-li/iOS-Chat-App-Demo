@@ -18,27 +18,29 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     lazy var tableView: UITableView = {
         let tableView = UITableView(frame: CGRect.zero, style: .grouped)
         tableView.separatorStyle = .none
-        tableView.backgroundColor = .systemBackground
+        tableView.backgroundColor = Colors.gray5
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     
-    lazy var chatMessageInputView: ChatMessageInputView = {
-        let chatMessageInputView = ChatMessageInputView()
+    lazy var bottomInputView: BottomInputView = {
+        let chatMessageInputView = BottomInputView()
         chatMessageInputView.translatesAutoresizingMaskIntoConstraints = false
         return chatMessageInputView
     }()
     
-    lazy var chatMessagesAddCollectionView: UICollectionView = {
+    lazy var bottomOptionsCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView.backgroundColor = Colors.gray8
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
     
-    var chatMessagesAddCollectionViewHeightConstraint: NSLayoutConstraint!
+    let bottomOptionsCollectionViewHeight: CGFloat = 260
+    var bottomOptionsCollectionViewHeightConstraint: NSLayoutConstraint!
     
-    let chatMessagesAddCollectionViewItemSize = 65
-    let chatMessagesAddCollectionViewNumberOfItemsEachRow = 4
+    let bottomOptionsCollectionViewItemSize = Int(OSHelper.getScreenWidth() * 0.16)
+    let bottomOptionsCollectionViewNumberOfItemsEachRow = 4
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +53,7 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(rightBarButtonTapped))
         
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = Colors.gray8
         
         configureSubviewConstraints()
         
@@ -60,15 +62,15 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
         tableView.register(ChatMessageTableViewCell.self, forCellReuseIdentifier: ChatMessageTableViewCell.id)
         tableView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissBottomViews)))
         
-        chatMessageInputView.sendButton.isEnabled = false
-        chatMessageInputView.textField.delegate = self
-        chatMessageInputView.addButton.addTarget(self, action: #selector(addButtonTapped), for: .touchUpInside)
-        chatMessageInputView.sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
-        chatMessageInputView.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        bottomInputView.sendButton.isEnabled = false
+        bottomInputView.textField.delegate = self
+        bottomInputView.leftButton.addTarget(self, action: #selector(leftButtonTapped), for: .touchUpInside)
+        bottomInputView.sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
+        bottomInputView.textField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         
-        chatMessagesAddCollectionView.delegate = self
-        chatMessagesAddCollectionView.dataSource = self
-        chatMessagesAddCollectionView.register(ChatMessagesAddCollectionViewCell.self, forCellWithReuseIdentifier: ChatMessagesAddCollectionViewCell.id)
+        bottomOptionsCollectionView.delegate = self
+        bottomOptionsCollectionView.dataSource = self
+        bottomOptionsCollectionView.register(BottomOptionsCollectionViewCell.self, forCellWithReuseIdentifier: BottomOptionsCollectionViewCell.id)
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
@@ -76,26 +78,26 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     
     func configureSubviewConstraints() {
         view.addSubview(tableView)
-        view.addSubview(chatMessageInputView)
-        view.addSubview(chatMessagesAddCollectionView)
+        view.addSubview(bottomInputView)
+        view.addSubview(bottomOptionsCollectionView)
         
-        chatMessagesAddCollectionViewHeightConstraint = chatMessagesAddCollectionView.heightAnchor.constraint(equalToConstant: 0)
+        bottomOptionsCollectionViewHeightConstraint = bottomOptionsCollectionView.heightAnchor.constraint(equalToConstant: 0)
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.topAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            chatMessageInputView.heightAnchor.constraint(equalToConstant: 60),
-            chatMessageInputView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
-            chatMessageInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            chatMessageInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            bottomInputView.heightAnchor.constraint(equalToConstant: 66),
+            bottomInputView.topAnchor.constraint(equalTo: tableView.bottomAnchor),
+            bottomInputView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomInputView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            chatMessagesAddCollectionViewHeightConstraint,
-            chatMessagesAddCollectionView.topAnchor.constraint(equalTo: chatMessageInputView.bottomAnchor),
-            chatMessagesAddCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            chatMessagesAddCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            chatMessagesAddCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            bottomOptionsCollectionViewHeightConstraint,
+            bottomOptionsCollectionView.topAnchor.constraint(equalTo: bottomInputView.bottomAnchor),
+            bottomOptionsCollectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            bottomOptionsCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            bottomOptionsCollectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
     }
     
@@ -125,25 +127,44 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
         navigationController?.pushViewController(viewController, animated: true)
     }
     
+    func showKeyboard() {
+        bottomInputView.textField.becomeFirstResponder()
+    }
+    
     func dismissKeyboard() {
-        chatMessageInputView.endEditing(true)
+        bottomInputView.endEditing(true)
     }
     
     @objc func dismissBottomViews() {
         dismissKeyboard()
-        chatMessagesAddCollectionView.isHidden = true
-        UIView.animate(withDuration: 1) {
-            self.chatMessagesAddCollectionViewHeightConstraint.constant = 0
+        self.bottomOptionsCollectionViewHeightConstraint.constant = 0
+        self.bottomInputView.status = .off
+        
+        UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut]) {
+            self.view.layoutIfNeeded()
         }
     }
     
-    @objc func addButtonTapped() {
-        chatMessagesAddCollectionView.isHidden = false
-        dismissKeyboard()
-        UIView.animate(withDuration: 1) {
-            self.chatMessagesAddCollectionViewHeightConstraint.constant = 260
+    @objc func leftButtonTapped() {
+        
+        switch self.bottomInputView.status {
+        case .off:
+            self.bottomOptionsCollectionViewHeightConstraint.constant = bottomOptionsCollectionViewHeight
+            self.bottomInputView.status = .showingOptionsCollectionView
+            tableView.scrollToBottom(animated: true)
+            UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut]) {
+                self.view.layoutIfNeeded()
+            }
+        case .showingKeyboard:
+            dismissKeyboard()
+            self.bottomOptionsCollectionViewHeightConstraint.constant = bottomOptionsCollectionViewHeight
+            self.bottomInputView.status = .showingOptionsCollectionView
+            UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut]) {
+                self.view.layoutIfNeeded()
+            }
+        case .showingOptionsCollectionView:
+            showKeyboard()
         }
-        tableView.scrollToBottom(animated: true)
     }
     
     @objc func sendButtonTapped() {
@@ -151,7 +172,7 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
         let chatMessage = ChatMessage(context: context)
         chatMessage.id = UUID()
         chatMessage.date = Date()
-        chatMessage.text = chatMessageInputView.textField.text
+        chatMessage.text = bottomInputView.textField.text
         chatMessage.fromUser = DataHelper.getSelfUser()?.user
         chatMessage.chat = chat
         chat.addToChatMessages(chatMessage)
@@ -165,27 +186,33 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
         loadData()
         tableView.scrollToBottom(animated: true)
         
-        chatMessageInputView.textField.text = ""
+        bottomInputView.textField.text = ""
     }
     
     @objc func textFieldDidChange(_ textField: UITextField) {
-        chatMessageInputView.sendButton.isEnabled = !chatMessageInputView.textField.isEmpty()
+        bottomInputView.sendButton.isEnabled = !bottomInputView.textField.isEmpty()
     }
     
     @objc func keyboardWillShow(notification: Notification) {
-        UIView.animate(withDuration: 1) {
-            self.chatMessagesAddCollectionView.isHidden = true
-            if let keyboardHeight = OSHelper.getKeyboardHeight(notification), let safeAreaBottomPadding = OSHelper.getSafeAreaBottomPadding(){
-                self.chatMessagesAddCollectionViewHeightConstraint.constant = keyboardHeight - safeAreaBottomPadding
-            }
+        self.bottomInputView.status = .showingKeyboard
+        
+        if let keyboardHeight = OSHelper.getKeyboardHeight(notification), let safeAreaBottomPadding = OSHelper.getSafeAreaBottomPadding(){
+            self.bottomOptionsCollectionViewHeightConstraint.constant = keyboardHeight - safeAreaBottomPadding
+        }
+        
+        UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut]) {
+            self.view.layoutIfNeeded()
         }
         
         tableView.scrollToBottom(animated: true)
     }
     
     @objc func keyboardWillHide(notification: Notification) {
-        UIView.animate(withDuration: 1) {
-            self.chatMessagesAddCollectionViewHeightConstraint.constant = 0
+        self.bottomInputView.status = .off
+        self.bottomOptionsCollectionViewHeightConstraint.constant = 0
+        
+        UIView.animate(withDuration: 0.15, delay: 0, options: [.curveEaseInOut]) {
+            self.view.layoutIfNeeded()
         }
     }
     
@@ -236,7 +263,7 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChatMessagesAddCollectionViewCell.id, for: indexPath) as! ChatMessagesAddCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BottomOptionsCollectionViewCell.id, for: indexPath) as! BottomOptionsCollectionViewCell
         if indexPath.row == 0 {
             cell.button.setImage(UIImage(systemName: "photo"), for: .normal)
             cell.label.text = "Photos"
@@ -254,12 +281,12 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: chatMessagesAddCollectionViewItemSize, height: chatMessagesAddCollectionViewItemSize)
+        return CGSize(width: bottomOptionsCollectionViewItemSize, height: bottomOptionsCollectionViewItemSize)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let collectionViewWidth = collectionView.frame.size.width
-        let size = CGFloat((Int(collectionViewWidth) - chatMessagesAddCollectionViewItemSize * chatMessagesAddCollectionViewNumberOfItemsEachRow) / (chatMessagesAddCollectionViewNumberOfItemsEachRow + 1))
+        let size = CGFloat((Int(collectionViewWidth) - bottomOptionsCollectionViewItemSize * bottomOptionsCollectionViewNumberOfItemsEachRow) / (bottomOptionsCollectionViewNumberOfItemsEachRow + 1))
         return UIEdgeInsets(top: size, left: size, bottom: size, right: size)
     }
     

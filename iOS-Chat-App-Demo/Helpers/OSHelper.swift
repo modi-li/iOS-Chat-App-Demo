@@ -21,6 +21,14 @@ class OSHelper {
         return UIApplication.shared.connectedScenes.compactMap { ($0 as? UIWindowScene)?.keyWindow }.last
     }
     
+    static func getScreenWidth() -> CGFloat {
+        return UIScreen.main.bounds.size.width
+    }
+    
+    static func getScreenHeight() -> CGFloat {
+        return UIScreen.main.bounds.size.height
+    }
+    
     static func getSafeAreaTopPadding() -> CGFloat? {
         return getKeyWindow()?.safeAreaInsets.top
     }

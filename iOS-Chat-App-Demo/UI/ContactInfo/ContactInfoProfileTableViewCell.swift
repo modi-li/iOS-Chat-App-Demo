@@ -25,7 +25,8 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 22)
+        label.font = .systemFont(ofSize: 22, weight: .medium)
+        label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,7 +37,7 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
         configuration.image = UIImage(systemName: "message")
         configuration.cornerStyle = .large
         configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = .secondarySystemGroupedBackground
+        configuration.baseBackgroundColor = Colors.gray6
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -48,7 +49,7 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
         configuration.image = UIImage(systemName: "phone")
         configuration.cornerStyle = .large
         configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = .secondarySystemGroupedBackground
+        configuration.baseBackgroundColor = Colors.gray6
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -60,7 +61,7 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
         configuration.image = UIImage(systemName: "video")
         configuration.cornerStyle = .large
         configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = .secondarySystemGroupedBackground
+        configuration.baseBackgroundColor = Colors.gray6
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

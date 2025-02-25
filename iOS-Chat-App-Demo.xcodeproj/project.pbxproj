@@ -37,7 +37,7 @@
 		D5B63FFF2C3AFB6300648BDA /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B63FFE2C3AFB6300648BDA /* Images.swift */; };
 		D5B640012C3AFBEF00648BDA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5B640002C3AFBEF00648BDA /* Constants.swift */; };
 		D5CA63E72C3C68C400764C3F /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CA63E62C3C68C400764C3F /* UITableView+Extension.swift */; };
-		D5CF39B92C2B436F0040D810 /* ChatMessagesAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF39B82C2B436F0040D810 /* ChatMessagesAddCollectionViewCell.swift */; };
+		D5CF39B92C2B436F0040D810 /* BottomOptionsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF39B82C2B436F0040D810 /* BottomOptionsCollectionViewCell.swift */; };
 		D5CF39C22C2C67EA0040D810 /* ChatInfoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF39C12C2C67EA0040D810 /* ChatInfoTableViewController.swift */; };
 		D5CF39C62C2C6A290040D810 /* ChatInfoProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF39C52C2C6A290040D810 /* ChatInfoProfileTableViewCell.swift */; };
 		D5CF39CD2C2E1DED0040D810 /* UITableViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF39CC2C2E1DED0040D810 /* UITableViewCell+Extension.swift */; };
@@ -46,7 +46,7 @@
 		D5CF39E22C30C30B0040D810 /* SampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF39E12C30C30B0040D810 /* SampleData.swift */; };
 		D5CF39E62C30DD060040D810 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CF39E52C30DD060040D810 /* UICollectionViewCell+Extension.swift */; };
 		D5F20A362C2A4746003257EC /* ContactInfoProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F20A352C2A4746003257EC /* ContactInfoProfileTableViewCell.swift */; };
-		D5F771E02C2726780098BFDE /* ChatMessageInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F771DF2C2726780098BFDE /* ChatMessageInputView.swift */; };
+		D5F771E02C2726780098BFDE /* BottomInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F771DF2C2726780098BFDE /* BottomInputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +82,7 @@
 		D5B63FFE2C3AFB6300648BDA /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		D5B640002C3AFBEF00648BDA /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D5CA63E62C3C68C400764C3F /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
-		D5CF39B82C2B436F0040D810 /* ChatMessagesAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessagesAddCollectionViewCell.swift; sourceTree = "<group>"; };
+		D5CF39B82C2B436F0040D810 /* BottomOptionsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomOptionsCollectionViewCell.swift; sourceTree = "<group>"; };
 		D5CF39C12C2C67EA0040D810 /* ChatInfoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfoTableViewController.swift; sourceTree = "<group>"; };
 		D5CF39C52C2C6A290040D810 /* ChatInfoProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfoProfileTableViewCell.swift; sourceTree = "<group>"; };
 		D5CF39CC2C2E1DED0040D810 /* UITableViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extension.swift"; sourceTree = "<group>"; };
@@ -91,7 +91,7 @@
 		D5CF39E12C30C30B0040D810 /* SampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleData.swift; sourceTree = "<group>"; };
 		D5CF39E52C30DD060040D810 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
 		D5F20A352C2A4746003257EC /* ContactInfoProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactInfoProfileTableViewCell.swift; sourceTree = "<group>"; };
-		D5F771DF2C2726780098BFDE /* ChatMessageInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageInputView.swift; sourceTree = "<group>"; };
+		D5F771DF2C2726780098BFDE /* BottomInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomInputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,8 +247,8 @@
 			children = (
 				D5B05D712C272F8E00AC3CFF /* ChatMessagesViewController.swift */,
 				D54D933C2C2630F5004B368F /* ChatMessageTableViewCell.swift */,
-				D5F771DF2C2726780098BFDE /* ChatMessageInputView.swift */,
-				D5CF39B82C2B436F0040D810 /* ChatMessagesAddCollectionViewCell.swift */,
+				D5F771DF2C2726780098BFDE /* BottomInputView.swift */,
+				D5CF39B82C2B436F0040D810 /* BottomOptionsCollectionViewCell.swift */,
 			);
 			path = ChatMessages;
 			sourceTree = "<group>";
@@ -377,7 +377,7 @@
 				D558F1912C3C3DE80055F721 /* UIHelper.swift in Sources */,
 				D5B05D722C272F8E00AC3CFF /* ChatMessagesViewController.swift in Sources */,
 				D5CF39E22C30C30B0040D810 /* SampleData.swift in Sources */,
-				D5CF39B92C2B436F0040D810 /* ChatMessagesAddCollectionViewCell.swift in Sources */,
+				D5CF39B92C2B436F0040D810 /* BottomOptionsCollectionViewCell.swift in Sources */,
 				D557562E2C384105003C85ED /* UITextField+Extension.swift in Sources */,
 				D557562C2C374468003C85ED /* TextField.swift in Sources */,
 				D54D932F2C262C43004B368F /* MainTabBarController.swift in Sources */,
@@ -393,7 +393,7 @@
 				D5B63FFF2C3AFB6300648BDA /* Images.swift in Sources */,
 				D5CF39CD2C2E1DED0040D810 /* UITableViewCell+Extension.swift in Sources */,
 				D557561E2C372133003C85ED /* WelcomeViewController.swift in Sources */,
-				D5F771E02C2726780098BFDE /* ChatMessageInputView.swift in Sources */,
+				D5F771E02C2726780098BFDE /* BottomInputView.swift in Sources */,
 				D5F20A362C2A4746003257EC /* ContactInfoProfileTableViewCell.swift in Sources */,
 				D5B05D7C2C27C02E00AC3CFF /* ChatTableViewCell.swift in Sources */,
 				D54D933D2C2630F5004B368F /* ChatMessageTableViewCell.swift in Sources */,

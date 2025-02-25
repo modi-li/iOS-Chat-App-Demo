@@ -1,5 +1,5 @@
 //
-//  ChatMessageInputView.swift
+//  BottomInputView.swift
 //  iOS-Chat-App-Demo
 //
 //  Created by Modi Li
@@ -7,17 +7,49 @@
 
 import UIKit
 
-class ChatMessageInputView: UIView {
+class BottomInputView: UIView {
     
-    lazy var topBorder: UIView = {
+    enum Status {
+        case off
+        case showingKeyboard
+        case showingOptionsCollectionView
+    }
+    
+    var status: Status = .off {
+        didSet {
+            switch status {
+            case .off:
+                bottomBorderView.backgroundColor = .clear
+                leftButton.configuration?.image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
+            case .showingKeyboard:
+                bottomBorderView.backgroundColor = .clear
+                leftButton.configuration?.image = UIImage(systemName: "plus.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 20))
+            case .showingOptionsCollectionView:
+                bottomBorderView.backgroundColor = Colors.border
+                leftButton.configuration?.image = UIImage(systemName: "characters.uppercase", withConfiguration: UIImage.SymbolConfiguration(pointSize: 13, weight: .medium))
+            }
+        }
+    }
+    
+    lazy var topBorderView: UIView = {
+        let height = 0.8
         let view = UIView()
         view.backgroundColor = Colors.border
         view.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
-        view.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: 0.8)
+        view.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: height)
         return view
     }()
     
-    lazy var addButton: UIButton = {
+    lazy var bottomBorderView: UIView = {
+        let height = 0.8
+        let view = UIView()
+        view.backgroundColor = Colors.border
+        view.autoresizingMask = [.flexibleWidth, .flexibleBottomMargin]
+        view.frame = CGRect(x: 0, y: 66 - height, width: frame.size.width, height: height)
+        return view
+    }()
+    
+    lazy var leftButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.plain()
         configuration.contentInsets = .zero
@@ -29,11 +61,11 @@ class ChatMessageInputView: UIView {
     }()
     
     lazy var textField: UITextField = {
-        let textField = TextField(withHorizontalPadding: 12)
-        textField.layer.cornerRadius = 18
-        textField.layer.borderWidth = 1
-        textField.layer.borderColor = Colors.border.cgColor
-        textField.font = .systemFont(ofSize: 16)
+        let textField = TextField(withHorizontalPadding: 10)
+        textField.layer.cornerRadius = 8
+        textField.layer.cornerCurve = .continuous
+        textField.font = .systemFont(ofSize: 17)
+        textField.backgroundColor = Colors.gray7
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -60,7 +92,11 @@ class ChatMessageInputView: UIView {
     }
     
     func commonInit() {
-        addSubview(topBorder)
+        
+        backgroundColor = Colors.gray8
+        
+        addSubview(topBorderView)
+        addSubview(bottomBorderView)
         
         configureSubviewConstraints()
         
@@ -70,19 +106,19 @@ class ChatMessageInputView: UIView {
     }
     
     func configureSubviewConstraints() {
-        addSubview(addButton)
+        addSubview(leftButton)
         addSubview(textField)
         addSubview(sendButton)
         
         NSLayoutConstraint.activate([
-            addButton.widthAnchor.constraint(equalToConstant: 36),
-            addButton.heightAnchor.constraint(equalToConstant: 36),
-            addButton.centerYAnchor.constraint(equalTo: centerYAnchor),
-            addButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
+            leftButton.widthAnchor.constraint(equalToConstant: 36),
+            leftButton.heightAnchor.constraint(equalToConstant: 36),
+            leftButton.centerYAnchor.constraint(equalTo: centerYAnchor),
+            leftButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
             
-            textField.heightAnchor.constraint(equalToConstant: 36),
+            textField.heightAnchor.constraint(equalToConstant: 42),
             textField.centerYAnchor.constraint(equalTo: centerYAnchor),
-            textField.leadingAnchor.constraint(equalTo: addButton.trailingAnchor, constant: 6),
+            textField.leadingAnchor.constraint(equalTo: leftButton.trailingAnchor, constant: 6),
             
             sendButton.widthAnchor.constraint(equalToConstant: 36),
             sendButton.heightAnchor.constraint(equalToConstant: 36),

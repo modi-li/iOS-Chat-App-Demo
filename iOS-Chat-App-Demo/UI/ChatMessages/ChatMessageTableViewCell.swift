@@ -9,15 +9,18 @@ import UIKit
 
 class ChatMessageTableViewCell: UITableViewCell {
     
+    var chatMessageIsFromSelfUser: Bool {
+        return chatMessage.fromUser?.id == DataHelper.getSelfUser()?.user?.id
+    }
+    
     var chatMessage: ChatMessage! {
         didSet {
             messageTextLabel.text = chatMessage.text
-            let isFromSelfUser = chatMessage.fromUser?.id == DataHelper.getSelfUser()?.user?.id
-            messageTextLabel.textColor = isFromSelfUser ? .systemBackground : .label
-            backgroundBubbleView.backgroundColor = isFromSelfUser ? Colors.gray1 : Colors.gray4
+            messageTextLabel.textColor = Colors.gray1
+            backgroundBubbleView.backgroundColor = chatMessageIsFromSelfUser ? Colors.gray9 : Colors.gray6
             
-            leadingConstraint.isActive = !isFromSelfUser
-            trailingConstraint.isActive = isFromSelfUser
+            leadingConstraint.isActive = !chatMessageIsFromSelfUser
+            trailingConstraint.isActive = chatMessageIsFromSelfUser
         }
     }
     
@@ -31,6 +34,8 @@ class ChatMessageTableViewCell: UITableViewCell {
     lazy var messageTextLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 18)
+        label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -45,6 +50,10 @@ class ChatMessageTableViewCell: UITableViewCell {
         backgroundColor = .clear
         
         configureSubviewConstraints()
+        
+        registerForTraitChanges([UITraitUserInterfaceStyle.self]) { (self: Self, previousTraitCollection: UITraitCollection) in
+            self.backgroundBubbleView.layer.borderColor = self.chatMessageIsFromSelfUser ? UIColor.clear.cgColor : Colors.border.cgColor
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -61,9 +70,9 @@ class ChatMessageTableViewCell: UITableViewCell {
             backgroundBubbleView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5),
             
             messageTextLabel.topAnchor.constraint(equalTo: backgroundBubbleView.topAnchor, constant: 10),
-            messageTextLabel.leadingAnchor.constraint(equalTo: backgroundBubbleView.leadingAnchor, constant: 15),
+            messageTextLabel.leadingAnchor.constraint(equalTo: backgroundBubbleView.leadingAnchor, constant: 17),
             messageTextLabel.bottomAnchor.constraint(equalTo: backgroundBubbleView.bottomAnchor, constant: -10),
-            messageTextLabel.trailingAnchor.constraint(equalTo: backgroundBubbleView.trailingAnchor, constant: -15)
+            messageTextLabel.trailingAnchor.constraint(equalTo: backgroundBubbleView.trailingAnchor, constant: -17)
         ])
         
         leadingConstraint = backgroundBubbleView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15)

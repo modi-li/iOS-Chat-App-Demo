@@ -16,7 +16,7 @@ class AudioCallViewController: UIViewController {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Hide", style: .plain, target: self, action: #selector(hide))
         
-        view.backgroundColor = Colors.gray2
+        view.backgroundColor = Colors.gray5
     }
     
     @objc func hide() {

@@ -1,5 +1,5 @@
 //
-//  ChatMessagesAddCollectionViewCell.swift
+//  BottomOptionsCollectionViewCell.swift
 //  iOS-Chat-App-Demo
 //
 //  Created by Modi Li
@@ -7,14 +7,15 @@
 
 import UIKit
 
-class ChatMessagesAddCollectionViewCell: UICollectionViewCell {
+class BottomOptionsCollectionViewCell: UICollectionViewCell {
     
     lazy var button: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
         configuration.contentInsets = .zero
-        configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = Colors.gray3
+        configuration.cornerStyle = .large
+        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseBackgroundColor = Colors.gray6
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -24,7 +25,7 @@ class ChatMessagesAddCollectionViewCell: UICollectionViewCell {
         let label = UILabel()
         label.textAlignment = .center
         label.font = .systemFont(ofSize: 13)
-        label.textColor = .label
+        label.textColor = Colors.gray3
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -46,9 +47,11 @@ class ChatMessagesAddCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(button)
         contentView.addSubview(label)
         
+        let buttonSize = OSHelper.getScreenWidth() * 0.16
+        
         NSLayoutConstraint.activate([
-            button.widthAnchor.constraint(equalToConstant: 60),
-            button.heightAnchor.constraint(equalToConstant: 60),
+            button.widthAnchor.constraint(equalToConstant: buttonSize),
+            button.heightAnchor.constraint(equalToConstant: buttonSize),
             button.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             button.topAnchor.constraint(equalTo: contentView.topAnchor),
             
