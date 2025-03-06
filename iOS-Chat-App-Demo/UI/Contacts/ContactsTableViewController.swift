@@ -2,7 +2,7 @@
 //  ContactsTableViewController.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -52,7 +52,7 @@ class ContactsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return Constants.tableViewCellHeightBig
+        return Measurement.tableViewCellHeightLarge
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

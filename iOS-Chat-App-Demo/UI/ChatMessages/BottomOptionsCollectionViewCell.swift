@@ -2,7 +2,7 @@
 //  BottomOptionsCollectionViewCell.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -14,8 +14,9 @@ class BottomOptionsCollectionViewCell: UICollectionViewCell {
         var configuration = UIButton.Configuration.filled()
         configuration.contentInsets = .zero
         configuration.cornerStyle = .large
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 18)
         configuration.baseForegroundColor = Colors.gray2
-        configuration.baseBackgroundColor = Colors.gray6
+        configuration.baseBackgroundColor = Colors.gray7
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -47,7 +48,7 @@ class BottomOptionsCollectionViewCell: UICollectionViewCell {
         contentView.addSubview(button)
         contentView.addSubview(label)
         
-        let buttonSize = OSHelper.getScreenWidth() * 0.16
+        let buttonSize = UIHelper.getScreenWidth() * 0.16
         
         NSLayoutConstraint.activate([
             button.widthAnchor.constraint(equalToConstant: buttonSize),

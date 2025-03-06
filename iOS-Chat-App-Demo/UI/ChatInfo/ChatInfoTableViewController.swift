@@ -2,7 +2,7 @@
 //  ChatInfoTableViewController.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -65,9 +65,6 @@ class ChatInfoTableViewController: InsetGroupedTableViewController {
                 }()
                 cell.accessoryView = switch_
             }
-            var backgroundConfiguration = cell.defaultBackgroundConfiguration()
-            backgroundConfiguration.backgroundColor = Colors.gray6
-            cell.backgroundConfiguration = backgroundConfiguration
             return cell
         }
     }
@@ -76,7 +73,7 @@ class ChatInfoTableViewController: InsetGroupedTableViewController {
         if indexPath.section == 0 {
             return UITableView.automaticDimension
         } else {
-            return Constants.tableViewCellHeight
+            return Measurement.tableViewCellHeightSmall
         }
     }
     

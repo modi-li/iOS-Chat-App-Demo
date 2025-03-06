@@ -2,7 +2,7 @@
 //  BottomInputView.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -65,7 +65,7 @@ class BottomInputView: UIView {
         textField.layer.cornerRadius = 8
         textField.layer.cornerCurve = .continuous
         textField.font = .systemFont(ofSize: 17)
-        textField.backgroundColor = Colors.gray7
+        textField.backgroundColor = Colors.gray8
         textField.translatesAutoresizingMaskIntoConstraints = false
         return textField
     }()
@@ -93,7 +93,7 @@ class BottomInputView: UIView {
     
     func commonInit() {
         
-        backgroundColor = Colors.gray8
+        backgroundColor = Colors.gray9
         
         addSubview(topBorderView)
         addSubview(bottomBorderView)

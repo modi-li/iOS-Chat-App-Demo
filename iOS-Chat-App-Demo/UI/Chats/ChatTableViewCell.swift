@@ -2,7 +2,7 @@
 //  ChatTableViewCell.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -28,7 +28,7 @@ class ChatTableViewCell: UITableViewCell {
     
     lazy var titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 19)
+        label.font = .systemFont(ofSize: 20)
         label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -45,7 +45,7 @@ class ChatTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        backgroundColor = Colors.gray4
+        backgroundColor = Colors.gray6
         
         configureSubviewConstraints()
     }
@@ -61,8 +61,9 @@ class ChatTableViewCell: UITableViewCell {
             photoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             
-            titleLabel.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 6),
+            titleLabel.topAnchor.constraint(equalTo: photoImageView.topAnchor, constant: 5),
             titleLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 8),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
             
             lastMessageLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: 1),
             lastMessageLabel.bottomAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: -4),

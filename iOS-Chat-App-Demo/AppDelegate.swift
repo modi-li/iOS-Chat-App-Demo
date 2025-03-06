@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -19,11 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: Colors.gray1]
         
         let tabBarAppearance = UITabBarAppearance()
-        tabBarAppearance.backgroundColor = Colors.gray8
+        tabBarAppearance.stackedLayoutAppearance.normal.iconColor = Colors.gray4
+        tabBarAppearance.stackedLayoutAppearance.normal.titleTextAttributes = [.foregroundColor: Colors.gray4]
+        tabBarAppearance.stackedLayoutAppearance.selected.iconColor = Colors.gray1
+        tabBarAppearance.stackedLayoutAppearance.selected.titleTextAttributes = [.foregroundColor: Colors.gray1]
+        tabBarAppearance.backgroundColor = Colors.gray9
         UITabBar.appearance().standardAppearance = tabBarAppearance
         UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         
-        UITableView.appearance().rowHeight = Constants.tableViewCellHeight
+        UITableView.appearance().rowHeight = Measurement.tableViewCellHeightSmall
+        
+        UITableViewCell.appearance().backgroundColor = Colors.gray7
         
         return true
     }

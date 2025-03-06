@@ -2,7 +2,7 @@
 //  UIComponents.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -16,7 +16,7 @@ class UIComponents {
             var configuration = UIButton.Configuration.filled()
             configuration.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 11, bottom: 5, trailing: 11)
             configuration.cornerStyle = .capsule
-            configuration.baseForegroundColor = Colors.gray6
+            configuration.baseForegroundColor = Colors.gray7
             configuration.baseBackgroundColor = Colors.gray1
             let attributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.systemFont(ofSize: 16, weight: .bold)

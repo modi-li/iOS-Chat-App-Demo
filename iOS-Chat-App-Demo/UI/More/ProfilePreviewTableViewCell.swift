@@ -1,32 +1,28 @@
 //
-//  ContactTableViewCell.swift
+//  ProfilePreviewTableViewCell.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi (Victor) Li
+//  Created by Modi (Victor) Li.
 //
 
 import UIKit
 
-class ContactTableViewCell: UITableViewCell {
-    
-    var user: User! {
-        didSet {
-            photoImageView.image = Images.defaultProfilePicture
-            nameLabel.text = user.name
-        }
-    }
+class ProfilePreviewTableViewCell: UITableViewCell {
     
     lazy var photoImageView: UIImageView = {
         let imageView = UIImageView()
+        imageView.image = Images.defaultProfilePicture
         imageView.layer.masksToBounds = true
         imageView.layer.cornerRadius = 5
+        imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 20)
+        label.text = DataHelper.getSelfUser()?.user?.name
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,8 +30,6 @@ class ContactTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
-        backgroundColor = Colors.gray6
         
         configureSubviewConstraints()
     }
@@ -45,14 +39,14 @@ class ContactTableViewCell: UITableViewCell {
         contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            photoImageView.widthAnchor.constraint(equalToConstant: 55),
-            photoImageView.heightAnchor.constraint(equalToConstant: 55),
+            photoImageView.widthAnchor.constraint(equalToConstant: 60),
+            photoImageView.heightAnchor.constraint(equalToConstant: 60),
             photoImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             photoImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15),
             
             nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            nameLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 8),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15)
+            nameLabel.leadingAnchor.constraint(equalTo: photoImageView.trailingAnchor, constant: 10),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15),
         ])
     }
     

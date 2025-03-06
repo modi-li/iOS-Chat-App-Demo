@@ -2,7 +2,7 @@
 //  SampleData.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -17,7 +17,7 @@ class SampleData {
         user.id = UUID()
         user.name = "Demo User"
         
-        let selfUser = SelfUser(context: context)
+        let selfUser = SelfUserManager(context: context)
         selfUser.user = user
         
         let user1 = User(context: context)

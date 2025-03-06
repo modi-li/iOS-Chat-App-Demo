@@ -2,7 +2,7 @@
 //  WelcomeViewController.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -25,7 +25,7 @@ class WelcomeViewController: UIViewController {
         configuration.baseForegroundColor = Colors.gray5
         configuration.baseBackgroundColor = Colors.gray1
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+            .font: UIFont.systemFont(ofSize: 19, weight: .bold)
         ]
         let attributedTitle = NSAttributedString(string: "Sign Up", attributes: attributes)
         configuration.attributedTitle = AttributedString(attributedTitle)
@@ -39,13 +39,16 @@ class WelcomeViewController: UIViewController {
         var configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .large
         configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = Colors.gray6
+        configuration.baseBackgroundColor = Colors.gray8
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+            .font: UIFont.systemFont(ofSize: 19, weight: .bold)
         ]
         let attributedTitle = NSAttributedString(string: "Log In", attributes: attributes)
         configuration.attributedTitle = AttributedString(attributedTitle)
         button.configuration = configuration
+        button.layer.shadowColor = UIColor.gray.cgColor
+        button.layer.shadowRadius = 10
+        button.layer.shadowOpacity = 0.1
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -70,8 +73,8 @@ class WelcomeViewController: UIViewController {
             welcomeLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 100),
             welcomeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            signUpButton.widthAnchor.constraint(equalToConstant: 260),
-            signUpButton.heightAnchor.constraint(equalToConstant: 60),
+            signUpButton.widthAnchor.constraint(equalToConstant: 280),
+            signUpButton.heightAnchor.constraint(equalToConstant: 65),
             signUpButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             logInButton.widthAnchor.constraint(equalTo: signUpButton.widthAnchor),

@@ -2,7 +2,7 @@
 //  LocalUserHelper.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import Foundation
@@ -15,7 +15,7 @@ class LocalUserHelper {
         UserDefaults.standard.set(true, forKey: isUserLoggedInKey)
     }
     
-    static func logOut() {
+    static func signOut() {
         UserDefaults.standard.set(false, forKey: isUserLoggedInKey)
     }
     

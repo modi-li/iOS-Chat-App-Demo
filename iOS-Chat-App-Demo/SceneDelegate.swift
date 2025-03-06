@@ -2,7 +2,7 @@
 //  SceneDelegate.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -18,17 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
         
+        window = UIWindow(windowScene: windowScene)
         window?.tintColor = Colors.gray1
+        window?.makeKeyAndVisible()
         
         if LocalUserHelper.isLoggedIn() {
-            window?.rootViewController = MainTabBarController()
+            UIHelper.setRootViewController(MainTabBarController())
         } else {
-            window?.rootViewController = UINavigationController(rootViewController: WelcomeViewController())
+            UIHelper.setRootViewController(UINavigationController(rootViewController: WelcomeViewController()))
         }
-        
-        window?.makeKeyAndVisible()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {

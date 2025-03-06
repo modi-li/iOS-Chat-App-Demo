@@ -2,7 +2,7 @@
 //  ChatMessagesViewController.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -31,7 +31,7 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     
     lazy var bottomOptionsCollectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        collectionView.backgroundColor = Colors.gray8
+        collectionView.backgroundColor = Colors.gray9
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -39,7 +39,7 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     let bottomOptionsCollectionViewHeight: CGFloat = 260
     var bottomOptionsCollectionViewHeightConstraint: NSLayoutConstraint!
     
-    let bottomOptionsCollectionViewItemSize = Int(OSHelper.getScreenWidth() * 0.16)
+    let bottomOptionsCollectionViewItemSize = Int(UIHelper.getScreenWidth() * 0.16)
     let bottomOptionsCollectionViewNumberOfItemsEachRow = 4
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "ellipsis"), style: .plain, target: self, action: #selector(rightBarButtonTapped))
         
-        view.backgroundColor = Colors.gray8
+        view.backgroundColor = Colors.gray9
         
         configureSubviewConstraints()
         
@@ -146,7 +146,6 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     @objc func leftButtonTapped() {
-        
         switch self.bottomInputView.status {
         case .off:
             self.bottomOptionsCollectionViewHeightConstraint.constant = bottomOptionsCollectionViewHeight
@@ -196,7 +195,7 @@ class ChatMessagesViewController: UIViewController, UITableViewDelegate, UITable
     @objc func keyboardWillShow(notification: Notification) {
         self.bottomInputView.status = .showingKeyboard
         
-        if let keyboardHeight = OSHelper.getKeyboardHeight(notification), let safeAreaBottomPadding = OSHelper.getSafeAreaBottomPadding(){
+        if let keyboardHeight = UIHelper.getKeyboardHeight(notification), let safeAreaBottomPadding = UIHelper.getSafeAreaBottomPadding(){
             self.bottomOptionsCollectionViewHeightConstraint.constant = keyboardHeight - safeAreaBottomPadding
         }
         

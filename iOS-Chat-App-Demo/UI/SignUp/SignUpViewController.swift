@@ -2,7 +2,7 @@
 //  SignUpViewController.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -20,10 +20,11 @@ class SignUpViewController: UIViewController {
     
     lazy var nameTextField: UITextField = {
         let textField = TextField(withHorizontalPadding: 15)
+        textField.layer.cornerCurve = .continuous
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray6
+        textField.backgroundColor = Colors.gray8
         textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Name", attributes: [.foregroundColor: Colors.placeholder])
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -32,10 +33,11 @@ class SignUpViewController: UIViewController {
     
     lazy var emailTextField: UITextField = {
         let textField = TextField(withHorizontalPadding: 15)
+        textField.layer.cornerCurve = .continuous
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray6
+        textField.backgroundColor = Colors.gray8
         textField.keyboardType = .emailAddress
         textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: [.foregroundColor: Colors.placeholder])
@@ -45,10 +47,11 @@ class SignUpViewController: UIViewController {
     
     lazy var passwordTextField: UITextField = {
         let textField = TextField(withHorizontalPadding: 15)
+        textField.layer.cornerCurve = .continuous
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1.5
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray6
+        textField.backgroundColor = Colors.gray8
         textField.isSecureTextEntry = true
         textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: [.foregroundColor: Colors.placeholder])
@@ -58,10 +61,11 @@ class SignUpViewController: UIViewController {
     
     lazy var reenterPasswordTextField: UITextField = {
         let textField = TextField(withHorizontalPadding: 15)
+        textField.layer.cornerCurve = .continuous
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1.5
         textField.layer.borderColor = Colors.border.cgColor
-        textField.backgroundColor = Colors.gray6
+        textField.backgroundColor = Colors.gray8
         textField.isSecureTextEntry = true
         textField.font = .systemFont(ofSize: 16, weight: .medium)
         textField.attributedPlaceholder = NSAttributedString(string: "Re-enter Password", attributes: [.foregroundColor: Colors.placeholder])
@@ -76,7 +80,7 @@ class SignUpViewController: UIViewController {
         configuration.baseForegroundColor = Colors.gray5
         configuration.baseBackgroundColor = Colors.gray1
         let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont.systemFont(ofSize: 18, weight: .bold)
+            .font: UIFont.systemFont(ofSize: 19, weight: .bold)
         ]
         let attributedTitle = NSAttributedString(string: "Sign Up", attributes: attributes)
         configuration.attributedTitle = AttributedString(attributedTitle)
@@ -148,7 +152,7 @@ class SignUpViewController: UIViewController {
     @objc func signUpButtonTapped() {
         SampleData.createAndInsertSampleData()
         LocalUserHelper.logIn()
-        OSHelper.setRootViewController(MainTabBarController())
+        UIHelper.setRootViewController(MainTabBarController())
     }
     
     @objc func dismissKeyboard() {

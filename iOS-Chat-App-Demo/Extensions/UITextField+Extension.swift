@@ -2,7 +2,7 @@
 //  UITextField+Extension.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit

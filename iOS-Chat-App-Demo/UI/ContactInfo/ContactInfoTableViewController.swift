@@ -2,7 +2,7 @@
 //  ContactInfoTableViewController.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -50,23 +50,17 @@ class ContactInfoTableViewController: InsetGroupedTableViewController {
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.id, for: indexPath)
+            cell.textLabel?.text = "Name"
             cell.accessoryType = .disclosureIndicator
-            var contentConfiguration = cell.defaultContentConfiguration()
-            contentConfiguration.text = "Name"
-            contentConfiguration.textProperties.color = Colors.gray1
-            cell.contentConfiguration = contentConfiguration
-            var backgroundConfiguration = cell.defaultBackgroundConfiguration()
-            backgroundConfiguration.backgroundColor = Colors.gray6
-            cell.backgroundConfiguration = backgroundConfiguration
             return cell
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 || indexPath.section == 2 {
+        if indexPath.section == 0 {
             return UITableView.automaticDimension
         } else {
-            return Constants.tableViewCellHeight
+            return Measurement.tableViewCellHeightSmall
         }
     }
     

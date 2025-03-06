@@ -2,7 +2,7 @@
 //  DataHelper.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -14,11 +14,10 @@ class DataHelper {
         return (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     }
     
-    static func getSelfUser() -> SelfUser? {
-        let request = SelfUser.fetchRequest()
+    static func getSelfUser() -> SelfUserManager? {
+        let request = SelfUserManager.fetchRequest()
         do {
-            let selfUser = try getContext().fetch(request)[0]
-            return selfUser
+            return try getContext().fetch(request)[0]
         } catch {
             return nil
         }

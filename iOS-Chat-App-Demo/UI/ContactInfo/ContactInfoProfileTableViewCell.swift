@@ -2,7 +2,7 @@
 //  ContactInfoProfileTableViewCell.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -25,7 +25,7 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 22, weight: .medium)
+        label.font = .systemFont(ofSize: 23, weight: .medium)
         label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -34,10 +34,12 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
     lazy var chatButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
-        configuration.image = UIImage(systemName: "message")
+        configuration.image = UIImage(systemName: "message.fill")
+        configuration.contentInsets = .zero
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = Colors.gray6
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 16)
+        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseBackgroundColor = Colors.gray7
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -46,10 +48,12 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
     lazy var audioButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
-        configuration.image = UIImage(systemName: "phone")
+        configuration.image = UIImage(systemName: "phone.fill")
+        configuration.contentInsets = .zero
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = Colors.gray6
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 16)
+        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseBackgroundColor = Colors.gray7
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -58,10 +62,12 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
     lazy var videoButton: UIButton = {
         let button = UIButton()
         var configuration = UIButton.Configuration.filled()
-        configuration.image = UIImage(systemName: "video")
+        configuration.image = UIImage(systemName: "video.fill")
+        configuration.contentInsets = .zero
         configuration.cornerStyle = .large
-        configuration.baseForegroundColor = Colors.gray1
-        configuration.baseBackgroundColor = Colors.gray6
+        configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 16)
+        configuration.baseForegroundColor = Colors.gray2
+        configuration.baseBackgroundColor = Colors.gray7
         button.configuration = configuration
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -109,13 +115,13 @@ class ContactInfoProfileTableViewCell: UITableViewCell {
             photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nameLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 8),
+            nameLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 5),
             
-            chatButton.heightAnchor.constraint(equalToConstant: 60),
+            chatButton.heightAnchor.constraint(equalToConstant: 65),
             audioButton.heightAnchor.constraint(equalTo: chatButton.heightAnchor),
             videoButton.heightAnchor.constraint(equalTo: audioButton.heightAnchor),
             
-            stackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 25),
+            stackView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20),
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)

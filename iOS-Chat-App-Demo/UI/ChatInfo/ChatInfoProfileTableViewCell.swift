@@ -2,7 +2,7 @@
 //  ChatInfoProfileTableViewCell.swift
 //  iOS-Chat-App-Demo
 //
-//  Created by Modi Li
+//  Created by Modi (Victor) Li
 //
 
 import UIKit
@@ -26,7 +26,7 @@ class ChatInfoProfileTableViewCell: UITableViewCell {
     
     lazy var nameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 22)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textColor = Colors.gray1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,13 +50,13 @@ class ChatInfoProfileTableViewCell: UITableViewCell {
         contentView.addSubview(nameLabel)
         
         NSLayoutConstraint.activate([
-            photoImageView.widthAnchor.constraint(equalToConstant: 90),
-            photoImageView.heightAnchor.constraint(equalToConstant: 90),
+            photoImageView.widthAnchor.constraint(equalToConstant: 80),
+            photoImageView.heightAnchor.constraint(equalToConstant: 80),
             photoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             photoImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             
             nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nameLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 8),
+            nameLabel.topAnchor.constraint(equalTo: photoImageView.bottomAnchor, constant: 4),
             nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ])
     }
